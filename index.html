@@ -5,623 +5,396 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Expresso Prime Brasil | Transporte Executivo Premium</title>
   <meta name="description" content="Expresso Prime Brasil — Referência em transporte executivo. Transfer aeroporto, eventos, corporativo e encomendas. Atendimento 24h.">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --gold: #C9A44A;
-      --gold2: #F0C96A;
-      --red: #C0392B;
-      --navy: #1A2744;
-      --black: #0B0B0B;
-      --dark: #111111;
+      --gold: #C8A84B;
+      --gold2: #F0D078;
+      --navy: #0E1C3A;
+      --black: #080808;
       --white: #FFFFFF;
-      --off: #F8F8F8;
-      --gray: #888;
+      --gray: #777;
+      --light: #F4F4F4;
     }
-
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--white);
-      color: var(--black);
-      overflow-x: hidden;
-    }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #111; overflow-x: hidden; }
 
-    /* ── TOPBAR ── */
+    /* TOPBAR */
     .topbar {
       background: var(--navy);
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.75);
       font-size: 12px;
-      font-weight: 500;
-      padding: 9px 20px;
+      padding: 8px 16px;
       text-align: center;
-      letter-spacing: 0.3px;
     }
-    .topbar a { color: var(--gold2); text-decoration: none; font-weight: 600; }
+    .topbar a { color: var(--gold2); font-weight: 600; text-decoration: none; }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      background: var(--black);
-      padding: 0 20px;
+      background: #000;
+      padding: 0 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 68px;
+      height: 66px;
       position: sticky;
       top: 0;
-      z-index: 300;
+      z-index: 500;
       border-bottom: 3px solid var(--gold);
     }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
+    .logo-wrap { display: flex; align-items: center; gap: 10px; }
     .logo-icon {
-      width: 42px;
-      height: 42px;
       background: var(--gold);
+      width: 40px; height: 40px;
       border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
     }
-
     .logo-text strong {
-      font-family: 'Oswald', sans-serif;
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: 1px;
-      text-transform: uppercase;
       display: block;
-      line-height: 1.1;
+      font-family: 'Oswald', sans-serif;
+      font-size: 17px; font-weight: 700;
+      color: #fff; text-transform: uppercase; letter-spacing: 1px; line-height: 1.1;
     }
-
-    .logo-text span {
-      font-size: 9px;
-      color: var(--gold);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: 500;
+    .logo-text small {
+      font-size: 9px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase;
     }
-
-    .nav-menu { display: none; }
-
-    .nav-btn {
-      background: var(--gold);
-      color: var(--black);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 11px 18px;
-      border-radius: 4px;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .nav-links { display: none; }
+    .nav-cta {
+      background: var(--gold); color: #000;
+      font-size: 11px; font-weight: 700;
+      padding: 10px 16px; border-radius: 3px;
+      text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;
       white-space: nowrap;
     }
 
-    /* ── HERO ── */
+    /* HERO — full-screen car image */
     .hero {
       position: relative;
-      min-height: 90vh;
-      background: var(--navy);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
       overflow: hidden;
     }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=85&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center 40%;
-      opacity: 0.4;
+    .hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
     }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
+    .hero-grad {
+      position: absolute; inset: 0;
       background: linear-gradient(
-        to bottom,
-        rgba(26,39,68,0.2) 0%,
-        rgba(11,11,11,0.6) 50%,
-        rgba(11,11,11,0.98) 100%
+        180deg,
+        rgba(0,0,0,0.15) 0%,
+        rgba(0,0,0,0.45) 40%,
+        rgba(0,0,0,0.92) 80%,
+        #000 100%
       );
     }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 0 20px 48px;
+    .hero-body {
+      position: relative; z-index: 3;
+      padding: 0 20px 52px;
     }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .hero-label {
+      display: inline-block;
       background: var(--gold);
-      color: var(--black);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      margin-bottom: 20px;
+      color: #000;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      padding: 5px 14px; margin-bottom: 18px;
     }
-
     .hero h1 {
       font-family: 'Oswald', sans-serif;
-      font-size: clamp(38px, 10vw, 80px);
-      font-weight: 700;
-      color: var(--white);
+      font-size: clamp(42px, 11vw, 88px);
+      font-weight: 700; color: #fff;
       text-transform: uppercase;
-      line-height: 1;
-      letter-spacing: 0.5px;
-      margin-bottom: 6px;
-    }
-
-    .hero h1 .highlight {
-      color: var(--gold);
-      display: block;
-    }
-
-    .hero-sub {
-      font-size: 14px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.7;
-      max-width: 400px;
-      margin-bottom: 32px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 360px;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: var(--black);
-      font-size: 14px;
-      font-weight: 700;
-      padding: 18px 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 17px 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      text-align: center;
-      border: 1.5px solid rgba(255,255,255,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      text-transform: uppercase;
-    }
-
-    /* ── COUNTERS STRIP ── */
-    .counters {
-      background: var(--gold);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      text-align: center;
-    }
-
-    .counter-item {
-      padding: 18px 8px;
-      border-right: 1px solid rgba(0,0,0,0.12);
-    }
-
-    .counter-item:last-child { border-right: none; }
-
-    .counter-item strong {
-      font-family: 'Oswald', sans-serif;
-      font-size: 30px;
-      font-weight: 700;
-      color: var(--black);
-      display: block;
-      line-height: 1;
-    }
-
-    .counter-item span {
-      font-size: 9px;
-      font-weight: 600;
-      color: rgba(0,0,0,0.55);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }
-
-    /* ── INTRO ── */
-    .intro {
-      background: var(--navy);
-      color: var(--white);
-      padding: 56px 20px;
-      text-align: center;
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-
-    .intro h2 {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(28px, 7vw, 52px);
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 1.05;
-      margin-bottom: 16px;
-    }
-
-    .intro p {
-      font-size: 14px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.8;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    /* ── SERVICES ── */
-    .services {
-      padding: 60px 20px;
-      background: var(--off);
-    }
-
-    .services h2 {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(28px, 7vw, 48px);
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .services > p {
-      font-size: 14px;
-      color: var(--gray);
-      margin-bottom: 36px;
-      line-height: 1.7;
-    }
-
-    .svc-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    .svc-card {
-      background: var(--white);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-      border-top: 4px solid var(--gold);
-    }
-
-    .svc-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .svc-body {
-      padding: 24px 20px;
-    }
-
-    .svc-num {
-      font-family: 'Oswald', sans-serif;
-      font-size: 40px;
-      font-weight: 700;
-      color: rgba(0,0,0,0.06);
-      line-height: 1;
-      display: block;
-    }
-
-    .svc-body h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 22px;
-      font-weight: 600;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      color: var(--navy);
-    }
-
-    .svc-body p {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.7;
-    }
-
-    .svc-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 14px;
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-decoration: none;
-    }
-
-    /* ── DIFERENCIAIS ── */
-    .diferenciais {
-      background: var(--black);
-      color: var(--white);
-      padding: 60px 20px;
-    }
-
-    .diferenciais h2 {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(28px, 7vw, 52px);
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .diferenciais h2 span { color: var(--gold); }
-
-    .diferenciais > p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 36px;
-      line-height: 1.7;
-    }
-
-    .dif-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .dif-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(201,164,74,0.2);
-      border-radius: 8px;
-      padding: 24px 18px;
-    }
-
-    .dif-icon {
-      font-size: 30px;
-      display: block;
-      margin-bottom: 12px;
-    }
-
-    .dif-card h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 17px;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-
-    .dif-card p {
-      font-size: 12px;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.7;
-    }
-
-    /* ── CTA BANNER ── */
-    .cta-banner {
-      background: var(--gold);
-      padding: 56px 20px;
-      text-align: center;
-    }
-
-    .cta-banner h2 {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(30px, 8vw, 60px);
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--black);
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .cta-banner p {
-      font-size: 15px;
-      color: rgba(0,0,0,0.55);
-      margin-bottom: 28px;
-      line-height: 1.6;
-    }
-
-    .btn-dark {
-      background: var(--black);
-      color: var(--white);
-      font-size: 15px;
-      font-weight: 700;
-      padding: 18px 32px;
-      border-radius: 4px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      width: 100%;
-      max-width: 380px;
-      justify-content: center;
-    }
-
-    /* ── CONTATO ── */
-    .contato {
-      background: var(--navy);
-      color: var(--white);
-      padding: 56px 20px;
-      text-align: center;
-    }
-
-    .contato h2 {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(28px, 7vw, 48px);
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .contato > p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 36px;
-      line-height: 1.7;
-    }
-
-    .contato-cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      max-width: 440px;
-      margin: 0 auto;
-    }
-
-    .contato-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      text-align: left;
-    }
-
-    .contato-card .ci {
-      width: 46px;
-      height: 46px;
-      min-width: 46px;
-      background: var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-    }
-
-    .contato-card h4 {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
+      line-height: 0.95;
+      letter-spacing: 0;
       margin-bottom: 4px;
     }
-
-    .contato-card p, .contato-card a {
-      font-size: 15px;
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 500;
+    .hero h1 em { color: var(--gold); font-style: normal; display: block; }
+    .hero-desc {
+      font-size: 14px; color: rgba(255,255,255,0.6);
+      line-height: 1.7; max-width: 380px;
+      margin: 18px 0 30px;
     }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--black);
-      border-top: 3px solid var(--gold);
-      padding: 28px 20px;
-      text-align: center;
+    .hero-btns { display: flex; flex-direction: column; gap: 12px; max-width: 340px; }
+    .btn-gold {
+      background: var(--gold); color: #000;
+      font-size: 14px; font-weight: 700;
+      padding: 17px 24px; border-radius: 3px;
+      text-decoration: none; text-align: center;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
     }
-
-    .footer-logo {
-      font-family: 'Oswald', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--white);
+    .btn-border {
+      background: transparent; color: #fff;
+      font-size: 14px; font-weight: 600;
+      padding: 16px 24px; border-radius: 3px;
+      text-decoration: none; text-align: center;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
       text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
-    .footer-logo span { color: var(--gold); }
-
-    .footer-copy {
-      font-size: 11px;
-      color: rgba(255,255,255,0.2);
-      margin-top: 8px;
+    /* STRIP */
+    .strip {
+      background: var(--gold);
+      display: grid; grid-template-columns: repeat(3,1fr);
+    }
+    .strip-item {
+      text-align: center; padding: 18px 8px;
+      border-right: 1px solid rgba(0,0,0,0.1);
+    }
+    .strip-item:last-child { border: none; }
+    .strip-item strong {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px; font-weight: 700; color: #000; line-height: 1;
+    }
+    .strip-item span {
+      font-size: 9px; font-weight: 700;
+      color: rgba(0,0,0,0.5); letter-spacing: 2px; text-transform: uppercase;
     }
 
-    /* ── WA FLOAT ── */
-    .wa-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-      width: 58px;
-      height: 58px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 24px rgba(37,211,102,0.5);
+    /* ABOUT — image left, text right */
+    .about {
+      background: var(--navy);
+      color: #fff;
+    }
+    .about-inner {
+      display: flex; flex-direction: column;
+    }
+    .about-img-wrap {
+      position: relative; height: 280px; overflow: hidden;
+    }
+    .about-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center;
+    }
+    .about-img-wrap::after {
+      content: '';
+      position: absolute; right: 0; top: 0; bottom: 0; width: 40px;
+      background: linear-gradient(to right, transparent, var(--navy));
+    }
+    .about-text { padding: 40px 20px 48px; }
+    .sec-tag {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px; display: block;
+    }
+    .about-text h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(28px,7vw,52px); font-weight: 700;
+      text-transform: uppercase; line-height: 1.05; margin-bottom: 16px;
+    }
+    .about-text p {
+      font-size: 14px; color: rgba(255,255,255,0.55);
+      line-height: 1.8; margin-bottom: 24px;
+    }
+    .about-text .btn-gold { display: inline-flex; max-width: 260px; }
+
+    /* SERVICES — photo cards */
+    .services { padding: 60px 20px; background: var(--light); }
+    .sec-head { margin-bottom: 36px; }
+    .sec-head h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(28px,7vw,50px); font-weight: 700;
+      text-transform: uppercase; line-height: 1.05; margin-bottom: 8px;
+    }
+    .sec-head p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+    .svc-grid {
+      display: grid; grid-template-columns: 1fr; gap: 20px;
+    }
+    .svc-card {
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 3px 20px rgba(0,0,0,0.09);
+      border-top: 4px solid var(--gold);
+      background: #fff;
+      display: flex; flex-direction: column;
+    }
+    .svc-card img {
+      width: 100%; height: 210px; object-fit: cover;
+      display: block;
+    }
+    .svc-info { padding: 22px 20px 24px; flex: 1; }
+    .svc-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 42px; font-weight: 700;
+      color: rgba(0,0,0,0.05); line-height: 1; display: block; margin-bottom: 4px;
+    }
+    .svc-info h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px; font-weight: 600;
+      text-transform: uppercase; color: var(--navy); margin-bottom: 8px;
+    }
+    .svc-info p { font-size: 13px; color: var(--gray); line-height: 1.7; }
+    .svc-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 14px; color: var(--gold);
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
       text-decoration: none;
     }
 
-    /* ── DESKTOP ── */
+    /* FLEET SHOWCASE */
+    .fleet { background: #000; padding: 60px 20px; }
+    .fleet .sec-head h2 { color: #fff; }
+    .fleet .sec-head p { color: rgba(255,255,255,0.45); }
+    .fleet-scroll {
+      display: flex; gap: 14px;
+      overflow-x: auto; padding-bottom: 12px;
+      scrollbar-width: thin;
+    }
+    .fleet-card {
+      min-width: 260px; border-radius: 8px; overflow: hidden;
+      position: relative; flex-shrink: 0;
+    }
+    .fleet-card img {
+      width: 100%; height: 170px; object-fit: cover; display: block;
+    }
+    .fleet-card-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      padding: 20px 14px 14px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 16px; font-weight: 600;
+      color: #fff; text-transform: uppercase;
+    }
+
+    /* DIFERENCIAIS */
+    .diferenciais { padding: 60px 20px; background: var(--navy); color: #fff; }
+    .diferenciais .sec-head h2 { color: #fff; }
+    .diferenciais .sec-head h2 span { color: var(--gold); }
+    .diferenciais .sec-head p { color: rgba(255,255,255,0.45); }
+    .dif-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .dif-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,168,75,0.25);
+      border-radius: 8px; padding: 22px 16px;
+    }
+    .dif-icon { font-size: 30px; display: block; margin-bottom: 12px; }
+    .dif-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 17px; font-weight: 600;
+      text-transform: uppercase; color: #fff; margin-bottom: 7px;
+    }
+    .dif-card p { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+
+    /* CTA */
+    .cta-sec {
+      background: var(--gold); padding: 60px 20px; text-align: center;
+    }
+    .cta-sec h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(30px,8vw,62px); font-weight: 700;
+      text-transform: uppercase; color: #000; line-height: 1; margin-bottom: 10px;
+    }
+    .cta-sec p { font-size: 15px; color: rgba(0,0,0,0.55); margin-bottom: 28px; line-height: 1.6; }
+    .btn-dark {
+      background: #000; color: #fff;
+      font-size: 14px; font-weight: 700;
+      padding: 18px 32px; border-radius: 4px;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      width: 100%; max-width: 360px; justify-content: center;
+    }
+
+    /* CONTATO */
+    .contato { background: var(--black); color: #fff; padding: 60px 20px; text-align: center; }
+    .contato .sec-head { margin-bottom: 32px; }
+    .contato .sec-head h2 { color: #fff; }
+    .contato .sec-head p { color: rgba(255,255,255,0.4); }
+    .contato-list {
+      display: grid; grid-template-columns: 1fr; gap: 14px;
+      max-width: 420px; margin: 0 auto;
+    }
+    .contato-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 8px; padding: 18px 20px;
+      display: flex; align-items: center; gap: 16px; text-align: left;
+    }
+    .ci-icon {
+      width: 44px; height: 44px; min-width: 44px;
+      background: var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .ci-info h4 {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 4px;
+    }
+    .ci-info p, .ci-info a {
+      font-size: 15px; color: #fff; text-decoration: none; font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #000;
+      border-top: 3px solid var(--gold);
+      padding: 28px 20px; text-align: center;
+    }
+    .f-logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px; font-weight: 700;
+      color: #fff; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .f-logo span { color: var(--gold); }
+    .f-copy { font-size: 11px; color: rgba(255,255,255,0.2); margin-top: 8px; }
+
+    /* WA FLOAT */
+    .wa-btn {
+      position: fixed; bottom: 20px; right: 20px; z-index: 999;
+      width: 58px; height: 58px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.5); text-decoration: none;
+    }
+
+    /* DESKTOP */
     @media (min-width: 768px) {
       nav { padding: 0 48px; }
-      .nav-menu {
-        display: flex;
-        gap: 28px;
-        list-style: none;
+      .nav-links {
+        display: flex; gap: 28px; list-style: none;
       }
-      .nav-menu a {
-        font-size: 12px;
-        font-weight: 600;
-        color: rgba(255,255,255,0.65);
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+      .nav-links a {
+        font-size: 12px; font-weight: 600;
+        color: rgba(255,255,255,0.6); text-decoration: none;
+        text-transform: uppercase; letter-spacing: 1px;
       }
-      .nav-menu a:hover { color: var(--gold); }
+      .nav-links a:hover { color: var(--gold); }
 
-      .hero-content { padding: 0 48px 80px; }
-      .hero-actions { flex-direction: row; max-width: none; }
-      .btn-primary, .btn-secondary { min-width: 200px; }
+      .hero-body { padding: 0 48px 80px; }
+      .hero-btns { flex-direction: row; max-width: none; }
+      .btn-gold, .btn-border { min-width: 200px; }
+
+      .about-inner { flex-direction: row; }
+      .about-img-wrap { width: 50%; height: auto; min-height: 400px; flex-shrink: 0; }
+      .about-img-wrap::after {
+        top: 0; right: 0; bottom: 0; width: 60px;
+        background: linear-gradient(to right, transparent, var(--navy));
+      }
+      .about-text { padding: 64px 48px; }
 
       .services { padding: 80px 48px; }
       .svc-grid { grid-template-columns: repeat(2, 1fr); }
 
+      .fleet { padding: 80px 48px; }
+
       .diferenciais { padding: 80px 48px; }
       .dif-grid { grid-template-columns: repeat(4, 1fr); }
 
+      .cta-sec { padding: 80px 48px; }
       .contato { padding: 80px 48px; }
-      .intro { padding: 72px 48px; }
-      .cta-banner { padding: 72px 48px; }
     }
 
     @media (min-width: 1024px) {
       .svc-grid { grid-template-columns: repeat(4, 1fr); }
-      .hero h1 { font-size: 88px; }
     }
   </style>
 </head>
@@ -629,171 +402,205 @@
 
 <!-- TOPBAR -->
 <div class="topbar">
-  ✦ Atendimento 24h &nbsp;|&nbsp; <a href="https://wa.me/5522992523429">WhatsApp: (22) 99252-3429</a>
+  ✦ Atendimento 24 horas &nbsp;|&nbsp; <a href="https://wa.me/5522992523429">WhatsApp: (22) 99252-3429</a>
 </div>
 
 <!-- NAV -->
 <nav>
-  <div class="logo">
+  <div class="logo-wrap">
     <div class="logo-icon">🚗</div>
     <div class="logo-text">
       <strong>Expresso Prime Brasil</strong>
-      <span>Transporte Executivo</span>
+      <small>Transporte Executivo</small>
     </div>
   </div>
-  <ul class="nav-menu">
+  <ul class="nav-links">
+    <li><a href="#sobre">Empresa</a></li>
     <li><a href="#servicos">Serviços</a></li>
     <li><a href="#diferenciais">Diferenciais</a></li>
     <li><a href="#contato">Contato</a></li>
   </ul>
-  <a href="https://wa.me/5522992523429" class="nav-btn">Solicitar agora</a>
+  <a href="https://wa.me/5522992523429" class="nav-cta">Solicitar agora</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-badge">✦ Referência em Transporte Executivo</div>
+  <img
+    class="hero-img"
+    src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1600&q=85&auto=format&fit=crop"
+    alt="Carro executivo de luxo"
+  />
+  <div class="hero-grad"></div>
+  <div class="hero-body">
+    <div class="hero-label">✦ Referência em Transporte Executivo</div>
     <h1>
-      Conforto,<br>
-      <span class="highlight">Confiabilidade</span>
+      Conforto,
+      <em>Pontualidade</em>
       e Excelência
     </h1>
-    <p class="hero-sub">Transporte executivo de alto padrão para quem valoriza pontualidade, segurança e sofisticação. Disponível 24h por dia.</p>
-    <div class="hero-actions">
-      <a href="https://wa.me/5522992523429" class="btn-primary">💬 Solicitar agora</a>
-      <a href="#servicos" class="btn-secondary">Ver serviços ↓</a>
+    <p class="hero-desc">Transporte executivo premium para quem exige o melhor. Motoristas profissionais, veículos de alto padrão e atendimento 24 horas.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5522992523429" class="btn-gold">💬 Solicitar agora</a>
+      <a href="#servicos" class="btn-border">Ver serviços ↓</a>
     </div>
   </div>
 </section>
 
-<!-- COUNTERS -->
-<div class="counters">
-  <div class="counter-item">
-    <strong>24h</strong>
-    <span>Disponível</span>
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item">
+    <strong>24h</strong><span>Disponível</span>
   </div>
-  <div class="counter-item">
-    <strong>100%</strong>
-    <span>Pontualidade</span>
+  <div class="strip-item">
+    <strong>100%</strong><span>Pontualidade</span>
   </div>
-  <div class="counter-item">
-    <strong>VIP</strong>
-    <span>Atendimento</span>
+  <div class="strip-item">
+    <strong>VIP</strong><span>Atendimento</span>
   </div>
 </div>
 
-<!-- INTRO -->
-<div class="intro">
-  <span class="tag">Quem somos</span>
-  <h2>Excelência e<br>Confiabilidade<br>em Cada Viagem</h2>
-  <p>A Expresso Prime Brasil oferece serviços de transporte executivo com motoristas profissionais, veículos de alto padrão e atendimento personalizado. Sua viagem começa com tranquilidade e termina com satisfação.</p>
-</div>
+<!-- ABOUT -->
+<section class="about" id="sobre">
+  <div class="about-inner">
+    <div class="about-img-wrap">
+      <img src="https://images.unsplash.com/photo-1603993097397-89c963e325c7?w=900&q=85&auto=format&fit=crop" alt="Interior carro executivo" />
+    </div>
+    <div class="about-text">
+      <span class="sec-tag">Quem somos</span>
+      <h2>Excelência e<br>Confiabilidade<br>em Cada Viagem</h2>
+      <p>A Expresso Prime Brasil oferece serviços de transporte executivo com motoristas profissionais, veículos de alto padrão e atendimento personalizado. Cada detalhe é pensado para que sua viagem seja confortável, segura e pontual.</p>
+      <a href="https://wa.me/5522992523429" class="btn-gold">Falar com a gente</a>
+    </div>
+  </div>
+</section>
 
-<!-- SERVIÇOS -->
+<!-- SERVICES -->
 <section class="services" id="servicos">
-  <span class="tag" style="color:var(--navy)">O que oferecemos</span>
-  <h2>Nossos Serviços</h2>
-  <p>Soluções completas de transporte para todas as suas necessidades.</p>
-
+  <div class="sec-head">
+    <span class="sec-tag" style="color:var(--navy)">O que oferecemos</span>
+    <h2>Nossos Serviços</h2>
+    <p>Soluções completas de transporte executivo para todas as suas necessidades.</p>
+  </div>
   <div class="svc-grid">
     <div class="svc-card">
-      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80&auto=format&fit=crop" alt="Transfer Aeroporto" class="svc-img">
-      <div class="svc-body">
+      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=700&q=80&auto=format&fit=crop" alt="Transfer Aeroporto">
+      <div class="svc-info">
         <span class="svc-num">01</span>
         <h3>Transfer Aeroporto</h3>
         <p>Chegue ou embarque sem estresse. Monitoramos seu voo em tempo real e garantimos pontualidade absoluta.</p>
-        <a href="https://wa.me/5522992523429" class="svc-link">Solicitar →</a>
+        <a href="https://wa.me/5522992523429" class="svc-btn">Solicitar →</a>
       </div>
     </div>
     <div class="svc-card">
-      <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&q=80&auto=format&fit=crop" alt="Eventos" class="svc-img">
-      <div class="svc-body">
+      <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=700&q=80&auto=format&fit=crop" alt="Eventos">
+      <div class="svc-info">
         <span class="svc-num">02</span>
         <h3>Eventos</h3>
         <p>Casamentos, formaturas, shows e eventos corporativos. Chegue com elegância em qualquer ocasião especial.</p>
-        <a href="https://wa.me/5522992523429" class="svc-link">Solicitar →</a>
+        <a href="https://wa.me/5522992523429" class="svc-btn">Solicitar →</a>
       </div>
     </div>
     <div class="svc-card">
-      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&auto=format&fit=crop" alt="Viagens Corporativas" class="svc-img">
-      <div class="svc-body">
+      <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=700&q=80&auto=format&fit=crop" alt="Viagens Corporativas">
+      <div class="svc-info">
         <span class="svc-num">03</span>
         <h3>Viagens Corporativas</h3>
         <p>Reuniões, viagens de negócios e contratos mensais. Profissionalismo e conforto para sua empresa.</p>
-        <a href="https://wa.me/5522992523429" class="svc-link">Solicitar →</a>
+        <a href="https://wa.me/5522992523429" class="svc-btn">Solicitar →</a>
       </div>
     </div>
     <div class="svc-card">
-      <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=600&q=80&auto=format&fit=crop" alt="Encomendas" class="svc-img">
-      <div class="svc-body">
+      <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=700&q=80&auto=format&fit=crop" alt="Encomendas">
+      <div class="svc-info">
         <span class="svc-num">04</span>
         <h3>Encomendas</h3>
-        <p>Entrega rápida e segura de encomendas e documentos. Agilidade e responsabilidade do início ao fim.</p>
-        <a href="https://wa.me/5522992523429" class="svc-link">Solicitar →</a>
+        <p>Entrega rápida e segura de encomendas e documentos importantes. Agilidade e responsabilidade.</p>
+        <a href="https://wa.me/5522992523429" class="svc-btn">Solicitar →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET -->
+<section class="fleet">
+  <div class="sec-head">
+    <span class="sec-tag">Frota</span>
+    <h2>Veículos de<br>Alto Padrão</h2>
+    <p>Viaje com conforto e estilo em veículos premium.</p>
+  </div>
+  <div class="fleet-scroll">
+    <div class="fleet-card">
+      <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80&auto=format&fit=crop" alt="Sedan Executivo">
+      <div class="fleet-card-label">Sedan Executivo</div>
+    </div>
+    <div class="fleet-card">
+      <img src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=600&q=80&auto=format&fit=crop" alt="SUV Premium">
+      <div class="fleet-card-label">SUV Premium</div>
+    </div>
+    <div class="fleet-card">
+      <img src="https://images.unsplash.com/photo-1539799139339-50c5fe1e2b1b?w=600&q=80&auto=format&fit=crop" alt="Van Executiva">
+      <div class="fleet-card-label">Van Executiva</div>
     </div>
   </div>
 </section>
 
 <!-- DIFERENCIAIS -->
 <section class="diferenciais" id="diferenciais">
-  <span class="tag">Por que nos escolher</span>
-  <h2>Nossos <span>Diferenciais</span></h2>
-  <p>Somos referência em transporte executivo. Veja o que nos torna a escolha certa.</p>
-
+  <div class="sec-head">
+    <span class="sec-tag">Por que nos escolher</span>
+    <h2>Nossos <span>Diferenciais</span></h2>
+    <p>Somos referência em transporte executivo. Veja o que nos diferencia.</p>
+  </div>
   <div class="dif-grid">
     <div class="dif-card">
       <span class="dif-icon">⏱️</span>
       <h3>Pontualidade</h3>
-      <p>Seu tempo é nosso compromisso. Sempre no horário combinado, sem atrasos.</p>
+      <p>Sempre no horário combinado. Seu tempo é nosso compromisso.</p>
     </div>
     <div class="dif-card">
       <span class="dif-icon">🛡️</span>
       <h3>Segurança</h3>
-      <p>Motoristas experientes, habilitados e veículos revisados periodicamente.</p>
+      <p>Motoristas experientes e veículos revisados periodicamente.</p>
     </div>
     <div class="dif-card">
       <span class="dif-icon">👑</span>
-      <h3>Conforto Premium</h3>
-      <p>Veículos de alto padrão para uma experiência de viagem impecável.</p>
+      <h3>Conforto VIP</h3>
+      <p>Veículos de alto padrão para uma experiência impecável.</p>
     </div>
     <div class="dif-card">
       <span class="dif-icon">📱</span>
       <h3>Atendimento 24h</h3>
-      <p>Suporte rápido via WhatsApp a qualquer hora, todos os dias da semana.</p>
+      <p>Suporte rápido via WhatsApp a qualquer hora do dia.</p>
     </div>
   </div>
 </section>
 
-<!-- CTA BANNER -->
-<div class="cta-banner">
+<!-- CTA -->
+<section class="cta-sec">
   <h2>Pronto para<br>viajar com classe?</h2>
-  <p>Fale agora com a nossa equipe e faça sua reserva em minutos.</p>
-  <a href="https://wa.me/5522992523429" class="btn-dark">
-    💬 Falar no WhatsApp agora
-  </a>
-</div>
+  <p>Fale agora com nossa equipe e faça sua reserva em minutos.</p>
+  <a href="https://wa.me/5522992523429" class="btn-dark">💬 Falar no WhatsApp agora</a>
+</section>
 
 <!-- CONTATO -->
 <section class="contato" id="contato">
-  <span class="tag">Fale conosco</span>
-  <h2>Contato</h2>
-  <p>Atendemos via WhatsApp com resposta rápida para sua reserva.</p>
-
-  <div class="contato-cards">
-    <div class="contato-card">
-      <div class="ci">💬</div>
-      <div>
+  <div class="sec-head">
+    <span class="sec-tag">Fale conosco</span>
+    <h2>Contato</h2>
+    <p>Atendemos via WhatsApp com resposta rápida para sua reserva.</p>
+  </div>
+  <div class="contato-list">
+    <div class="contato-item">
+      <div class="ci-icon">💬</div>
+      <div class="ci-info">
         <h4>WhatsApp</h4>
         <a href="https://wa.me/5522992523429">(22) 99252-3429</a>
       </div>
     </div>
-    <div class="contato-card">
-      <div class="ci">🕐</div>
-      <div>
-        <h4>Horário de Atendimento</h4>
+    <div class="contato-item">
+      <div class="ci-icon">🕐</div>
+      <div class="ci-info">
+        <h4>Horário</h4>
         <p>24h por dia, 7 dias por semana</p>
       </div>
     </div>
@@ -802,12 +609,12 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Expresso Prime <span>Brasil</span></div>
-  <div class="footer-copy">© 2025 Expresso Prime Brasil · Todos os direitos reservados</div>
+  <div class="f-logo">Expresso Prime <span>Brasil</span></div>
+  <div class="f-copy">© 2025 Expresso Prime Brasil · Todos os direitos reservados</div>
 </footer>
 
 <!-- WA FLOAT -->
-<a href="https://wa.me/5522992523429" class="wa-float" target="_blank">
+<a href="https://wa.me/5522992523429" class="wa-btn" target="_blank">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
